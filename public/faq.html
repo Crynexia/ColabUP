@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preguntas frecuentes — ColabUp</title>
+<meta name="description" content="Resuelve tus dudas sobre cómo funciona ColabUp.">
+<meta name="theme-color" content="#1E3A5F">
+<link rel="icon" href="assets/images/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/styles/styles.css">
+<link rel="stylesheet" href="assets/styles/legal.css">
+<link rel="stylesheet" href="assets/styles/help.css">
+<link rel="stylesheet" href="assets/styles/chatbot.css">
+</head>
+<body>
+
+<header class="navbar is-scrolled">
+  <div class="container">
+    <a href="index.html" class="brand"><img src="assets/images/logo.png" alt="ColabUp"></a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="index.html#explorar">Explorar</a>
+      <a href="index.html#proyectos">Proyectos</a>
+      <a href="index.html#nosotros">Nosotros</a>
+      <a href="index.html#ayuda">Ayuda</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="login.html" class="btn btn-secondary">Ingresar</a>
+      <a href="register.html" class="btn btn-primary">Registrarse</a>
+    </div>
+  </div>
+</header>
+
+<section class="legal-hero">
+  <div class="container">
+    <h1>Preguntas frecuentes</h1>
+    <p>Todo lo que necesitas saber antes de empezar a colaborar en ColabUp.</p>
+  </div>
+</section>
+
+<section class="legal-content">
+  <div class="container">
+    <div class="panel" style="padding: 8px var(--space-3);" id="public-faq-container"></div>
+    <p style="text-align:center; margin-top: var(--space-4); font-size:14px; color:#5b6472;">
+      ¿No encontraste lo que buscabas? <a href="register.html" style="color:var(--color-celeste); font-weight:700;">Crea tu cuenta</a> y accede al Centro de Ayuda completo, o escríbenos a <strong>soporte@colabup.app</strong>.
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-bottom">
+    <span>ColabUp © 2026 — Todos los derechos reservados.</span>
+    <a href="index.html">Volver al inicio</a>
+  </div>
+</footer>
+
+<div class="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+  'use strict';
+  const FAQS = [
+    { q: '¿Qué es ColabUp?', a: 'Es una plataforma de networking y colaboración que conecta estudiantes, egresados y emprendedores para construir proyectos reales en equipo.' },
+    { q: '¿Cómo creo una cuenta?', a: 'Haz clic en "Registrarse", completa tus datos y acepta los términos de servicio. Tu cuenta estará lista al instante.' },
+    { q: '¿ColabUp tiene algún costo?', a: 'No. ColabUp es completamente gratuito para estudiantes, egresados y emprendedores.' },
+    { q: '¿Cómo publico un proyecto?', a: 'Una vez dentro, ve a la sección Proyectos y haz clic en "Crear proyecto" para publicar tu idea y buscar colaboradores.' },
+    { q: '¿Puedo crear grupos o comunidades?', a: 'Sí, desde la sección Grupos puedes crear comunidades temáticas o unirte a las que ya existen.' },
+    { q: '¿Mis datos están seguros?', a: 'Sí. Aplicamos buenas prácticas de protección de datos. Puedes revisar el detalle en nuestra <a href="privacy.html" style="text-decoration:underline;">política de privacidad</a>.' },
+  ];
+  const container = document.getElementById('public-faq-container');
+  container.innerHTML = FAQS.map((f, i) => `
+    <div class="faq-item" data-i="${i}">
+      <button type="button" class="faq-question" aria-expanded="false">${f.q} <i class="fa-solid fa-chevron-down"></i></button>
+      <div class="faq-answer"><p>${f.a}</p></div>
+    </div>
+  `).join('');
+  container.querySelectorAll('.faq-item').forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    question.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+      container.querySelectorAll('.faq-item.is-open').forEach(o => { if (o !== item) { o.classList.remove('is-open'); o.querySelector('.faq-answer').style.maxHeight = null; } });
+      item.classList.toggle('is-open', !isOpen);
+      answer.style.maxHeight = isOpen ? null : answer.scrollHeight + 'px';
+      question.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+})();
+</script>
+<script src="assets/scripts/chatbot.js"></script>
+</body>
+</html>
