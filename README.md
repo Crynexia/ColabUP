@@ -6,6 +6,8 @@ ColabUp es una plataforma digital desarrollada por la startup **Crynexia**, orie
 
 Este repositorio contiene el **avance de implementación del Landing Page** del proyecto, desarrollado para el curso de IHC y Tecnologías Móviles (UPC).
 
+> 📌 **Nota sobre el alcance de este avance:** Este repositorio contiene el proyecto completo de ColabUp (todas las pantallas de la plataforma: dashboard, login, perfil, grupos, etc.). Sin embargo, el **Challenge de esta semana evalúa únicamente el Landing Page**, ubicado en [`public/index.html`](public/index.html). Esa es la pantalla pública de presentación del producto; el resto de páginas corresponden a avances de otras semanas/entregas del curso.
+
 ## Tabla de contenido
 
 - [Información del proyecto](#información-del-proyecto)
@@ -152,3 +154,4 @@ El proyecto sigue el modelo **GitFlow**:
 ## Cómo visualizar el proyecto
 
 Abrir el archivo `public/index.html` directamente en el navegador, o servirlo con una extensión tipo *Live Server*.
+
